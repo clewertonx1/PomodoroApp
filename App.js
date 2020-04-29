@@ -42,9 +42,9 @@ export default function App() {
   return (
     
     <View style={styles.container}>
-      <Text>{`${minutes}:${secods}`}</Text>
-      <TouchableOpacity onPress={() => handleButton()}>
-        <Text>{status ? "Pause" : "Start"}</Text>
+      <Text style={styles.text}>{`${minutes}:${secods}`}</Text>
+      <TouchableOpacity  style={[styles.button, {backgroundColor: status ? '#ff7272' : "#83fc93"}]} onPress={() => handleButton()}>
+        <Text style={styles.buttonText}>{status ? "Pause" : "Start"}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -57,5 +57,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  text:{
+    fontSize: 50,
+  },
+  button:{
+    margin: 10,
+    width: 120,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10
+  },
+  buttonText:{
+    color: 'white',
+    fontSize: 20,
+  }
  
 });
