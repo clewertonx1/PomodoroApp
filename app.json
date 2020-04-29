@@ -1,0 +1,17 @@
+{
+  "name": "Pomodoro",
+  "displayName": "Pomodoro",
+  "expo": {
+    "name": "Pomodoro",
+    "slug": "Pomodoro",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
