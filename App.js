@@ -1,17 +1,37 @@
 import * as React from 'react';
+import {useEffect, useState, } from 'react'
 import { Platform, StyleSheet, Text, View } from 'react-native';
 
-const instructions = Platform.select({
-  ios: `Press Cmd+R to reload,\nCmd+D or shake for dev menu`,
-  android: `Double tap R on your keyboard to reload,\nShake or press menu button for dev menu`,
-});
+
 
 export default function App() {
+  
+  const [minutes, setMinutes] = useState(25)
+  const [secods, setSeconds] = useState(0)
+  
+
+  useEffect(() => {
+    let count = 0
+    const loop = setInterval(() =>{
+      
+      if(count === 0){
+        setMinutes(minutes => minutes -1 )
+        setSeconds(60)
+        count = 60 
+      }
+      if(count > 0 ){    
+        setSeconds(secods => secods -1 )
+        count = count - 1
+        console.log(count)
+      }
+    }, 1000)
+    return () => clearInterval(loop)
+  },[])
+
   return (
+    
     <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.instructions}>To get started, edit App.js</Text>
-      <Text style={styles.instructions}>{instructions}</Text>
+      <Text>{`${minutes}:${secods}`}</Text>
     </View>
   );
 }
@@ -23,14 +43,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+ 
 });
